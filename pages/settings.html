@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings — Material 3 Design System</title>
+  <meta name="description" content="M3 spec-compliant settings template for web applications.">
+
+  <!-- Theme Init -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (t && t !== 'auto') document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+
+  <!-- Typography & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+
+  <link rel="stylesheet" href="../styles/theme.css">
+  <link rel="stylesheet" href="../styles/base.css">
+  <link rel="stylesheet" href="../components/bte-card.css">
+  <link rel="stylesheet" href="../components/bte-navigation.css">
+  <link rel="stylesheet" href="../components/bte-top-app-bar.css">
+  <link rel="stylesheet" href="../components/bte-segmented-button.css">
+
+  <style>
+    .settings-container {
+      max-width: 800px;
+      width: 100%;
+      margin-inline: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .setting-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--md-sys-color-outline-variant);
+    }
+    .setting-item:last-child {
+      border-bottom: none;
+    }
+    .setting-text {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="m3-layout-root">
+    
+    <!-- Drawer (Expanded) -->
+    <nav class="bte-nav-drawer" aria-label="Main Navigation">
+      <div class="bte-nav-drawer__title">Material 3 System</div>
+      <a href="../index.html" class="bte-nav-drawer__item">
+        <span class="material-symbols-outlined">dashboard</span>
+        Showcase
+      </a>
+      <a href="starter-template.html" class="bte-nav-drawer__item">
+        <span class="material-symbols-outlined">description</span>
+        Templates
+      </a>
+      <a href="#" class="bte-nav-drawer__item bte-nav-drawer__item--active" aria-current="page">
+        <span class="material-symbols-outlined">settings</span>
+        Settings
+      </a>
+    </nav>
+
+    <!-- Rail (Medium) -->
+    <nav class="bte-nav-rail" aria-label="Medium Navigation Rail">
+      <a href="../index.html" class="bte-nav-rail__item" aria-label="Showcase">
+        <div class="bte-nav-rail__icon-container"><span class="material-symbols-outlined">dashboard</span></div>
+        <span class="md-typescale-label-small">Showcase</span>
+      </a>
+      <a href="#" class="bte-nav-rail__item bte-nav-rail__item--active" aria-label="Settings" aria-current="page">
+        <div class="bte-nav-rail__icon-container"><span class="material-symbols-outlined">settings</span></div>
+        <span class="md-typescale-label-small">Settings</span>
+      </a>
+    </nav>
+
+    <!-- Content -->
+    <div style="flex: 1; display: flex; flex-direction: column; min-width: 0;">
+      
+      <header class="bte-top-app-bar">
+        <h1 class="bte-top-app-bar__title">Application Settings</h1>
+      </header>
+
+      <main class="m3-main-container">
+        <div class="settings-container">
+          
+          <!-- Appearance Section -->
+          <div class="bte-card bte-card--outlined">
+            <h2 class="md-typescale-title-large" style="margin-bottom: 16px;">Appearance & Theme</h2>
+            
+            <div class="setting-item">
+              <div class="setting-text">
+                <span class="md-typescale-title-medium">Color Theme</span>
+                <span class="md-typescale-body-medium" style="color: var(--md-sys-color-on-surface-variant);">
+                  Switch between light, dark, and high-contrast modes
+                </span>
+              </div>
+              <div class="bte-segmented-button-set" id="theme-segments" role="radiogroup" aria-label="Theme Selection">
+                <button type="button" class="bte-segmented-button bte-segmented-button--selected" data-val="auto" role="radio" aria-checked="true">Auto</button>
+                <button type="button" class="bte-segmented-button" data-val="light" role="radio" aria-checked="false">Light</button>
+                <button type="button" class="bte-segmented-button" data-val="dark" role="radio" aria-checked="false">Dark</button>
+              </div>
+            </div>
+
+            <div class="setting-item">
+              <div class="setting-text">
+                <span class="md-typescale-title-medium">High Contrast Mode</span>
+                <span class="md-typescale-body-medium" style="color: var(--md-sys-color-on-surface-variant);">
+                  Maximize border definition and typography contrast
+                </span>
+              </div>
+              <md-switch id="high-contrast-toggle" aria-label="Toggle High Contrast"></md-switch>
+            </div>
+          </div>
+
+          <!-- Notifications Section -->
+          <div class="bte-card bte-card--outlined">
+            <h2 class="md-typescale-title-large" style="margin-bottom: 16px;">Notifications</h2>
+            
+            <div class="setting-item">
+              <div class="setting-text">
+                <span class="md-typescale-title-medium">Push Notifications</span>
+                <span class="md-typescale-body-medium" style="color: var(--md-sys-color-on-surface-variant);">
+                  Receive updates about pipeline changes and system alerts
+                </span>
+              </div>
+              <md-switch selected aria-label="Toggle Push Notifications"></md-switch>
+            </div>
+
+            <div class="setting-item">
+              <div class="setting-text">
+                <span class="md-typescale-title-medium">Email Digest</span>
+                <span class="md-typescale-body-medium" style="color: var(--md-sys-color-on-surface-variant);">
+                  Send summary email once a week
+                </span>
+              </div>
+              <md-switch aria-label="Toggle Email Digest"></md-switch>
+            </div>
+          </div>
+
+          <!-- Save Actions -->
+          <div style="display: flex; justify-content: flex-end; gap: 12px;">
+            <md-outlined-button type="button">Reset Defaults</md-outlined-button>
+            <md-filled-button type="button">Save Preferences</md-filled-button>
+          </div>
+
+        </div>
+      </main>
+    </div>
+
+    <!-- Bottom Nav (Compact) -->
+    <nav class="bte-nav-bar" aria-label="Mobile Navigation">
+      <a href="../index.html" class="bte-nav-bar__item" aria-label="Showcase">
+        <div class="bte-nav-bar__icon-container"><span class="material-symbols-outlined">dashboard</span></div>
+        <span class="bte-nav-bar__label">Showcase</span>
+      </a>
+      <a href="#" class="bte-nav-bar__item bte-nav-bar__item--active" aria-label="Settings" aria-current="page">
+        <div class="bte-nav-bar__icon-container"><span class="material-symbols-outlined">settings</span></div>
+        <span class="bte-nav-bar__label">Settings</span>
+      </a>
+    </nav>
+  </div>
+
+  <script type="module">
+    import '@material/web/button/filled-button.js';
+    import '@material/web/button/outlined-button.js';
+    import '@material/web/switch/switch.js';
+    import { setTheme, getStoredTheme } from '../components/bte-theme.js';
+
+    const segments = document.querySelectorAll('#theme-segments .bte-segmented-button');
+    const currentTheme = getStoredTheme();
+
+    segments.forEach(btn => {
+      const val = btn.getAttribute('data-val');
+      if (val === currentTheme) {
+        setActive(btn);
+      }
+      btn.addEventListener('click', () => {
+        setActive(btn);
+        setTheme(val);
+      });
+    });
+
+    function setActive(activeBtn) {
+      segments.forEach(b => {
+        b.classList.remove('bte-segmented-button--selected');
+        b.setAttribute('aria-checked', 'false');
+      });
+      activeBtn.classList.add('bte-segmented-button--selected');
+      activeBtn.setAttribute('aria-checked', 'true');
+    }
+  </script>
+</body>
+</html>

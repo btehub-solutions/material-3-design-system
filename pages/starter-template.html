@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M3 Page Starter Template</title>
+  <meta name="description" content="Clean M3 starter page with responsive navigation and design token integration.">
+
+  <!-- Zero-flash Theme Initializer -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (t && t !== 'auto') document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+
+  <!-- Google Fonts: Roboto & Material Symbols -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+
+  <!-- Core M3 Styles -->
+  <link rel="stylesheet" href="../styles/theme.css">
+  <link rel="stylesheet" href="../styles/base.css">
+  <link rel="stylesheet" href="../components/bte-card.css">
+  <link rel="stylesheet" href="../components/bte-navigation.css">
+  <link rel="stylesheet" href="../components/bte-top-app-bar.css">
+  <link rel="stylesheet" href="../components/bte-page-states.css">
+</head>
+<body>
+  <div class="m3-layout-root">
+    
+    <!-- Navigation Drawer (Expanded screens >= 840px) -->
+    <nav class="bte-nav-drawer" aria-label="Main Navigation">
+      <div class="bte-nav-drawer__title">App Title</div>
+      <a href="#" class="bte-nav-drawer__item bte-nav-drawer__item--active" aria-current="page">
+        <span class="material-symbols-outlined">home</span>
+        Home
+      </a>
+      <a href="#" class="bte-nav-drawer__item">
+        <span class="material-symbols-outlined">folder</span>
+        Projects
+      </a>
+      <a href="#" class="bte-nav-drawer__item">
+        <span class="material-symbols-outlined">settings</span>
+        Settings
+      </a>
+    </nav>
+
+    <!-- Navigation Rail (Medium screens: 600px - 839px) -->
+    <nav class="bte-nav-rail" aria-label="Medium Navigation Rail">
+      <a href="#" class="bte-nav-rail__item bte-nav-rail__item--active" aria-label="Home" aria-current="page">
+        <div class="bte-nav-rail__icon-container">
+          <span class="material-symbols-outlined">home</span>
+        </div>
+        <span class="md-typescale-label-small">Home</span>
+      </a>
+      <a href="#" class="bte-nav-rail__item" aria-label="Projects">
+        <div class="bte-nav-rail__icon-container">
+          <span class="material-symbols-outlined">folder</span>
+        </div>
+        <span class="md-typescale-label-small">Projects</span>
+      </a>
+      <a href="#" class="bte-nav-rail__item" aria-label="Settings">
+        <div class="bte-nav-rail__icon-container">
+          <span class="material-symbols-outlined">settings</span>
+        </div>
+        <span class="md-typescale-label-small">Settings</span>
+      </a>
+    </nav>
+
+    <!-- Main Content Container -->
+    <div style="flex: 1; display: flex; flex-direction: column; min-width: 0;">
+      
+      <!-- Top App Bar -->
+      <header class="bte-top-app-bar">
+        <h1 class="bte-top-app-bar__title">Page Title</h1>
+        <div class="bte-top-app-bar__actions">
+          <md-icon-button aria-label="Search">
+            <md-icon><span class="material-symbols-outlined">search</span></md-icon>
+          </md-icon-button>
+          <md-icon-button aria-label="User Profile">
+            <md-icon><span class="material-symbols-outlined">account_circle</span></md-icon>
+          </md-icon-button>
+        </div>
+      </header>
+
+      <!-- Main Page Body -->
+      <main class="m3-main-container">
+        <h2 class="md-typescale-headline-medium">Welcome</h2>
+        <p class="md-typescale-body-large" style="margin-top: 8px; color: var(--md-sys-color-on-surface-variant);">
+          This is an M3 canonical starter template.
+        </p>
+
+        <!-- Example Card -->
+        <div class="bte-card bte-card--elevated" style="margin-top: 24px;">
+          <h3 class="bte-card__headline">Starter Content</h3>
+          <p class="bte-card__body">
+            Begin adding your page components, forms, and cards here.
+          </p>
+          <div class="bte-card__actions">
+            <md-filled-button>Get Started</md-filled-button>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- Navigation Bar (Compact screens < 600px) -->
+    <nav class="bte-nav-bar" aria-label="Mobile Navigation">
+      <a href="#" class="bte-nav-bar__item bte-nav-bar__item--active" aria-label="Home" aria-current="page">
+        <div class="bte-nav-bar__icon-container">
+          <span class="material-symbols-outlined">home</span>
+        </div>
+        <span class="bte-nav-bar__label">Home</span>
+      </a>
+      <a href="#" class="bte-nav-bar__item" aria-label="Projects">
+        <div class="bte-nav-bar__icon-container">
+          <span class="material-symbols-outlined">folder</span>
+        </div>
+        <span class="bte-nav-bar__label">Projects</span>
+      </a>
+      <a href="#" class="bte-nav-bar__item" aria-label="Settings">
+        <div class="bte-nav-bar__icon-container">
+          <span class="material-symbols-outlined">settings</span>
+        </div>
+        <span class="bte-nav-bar__label">Settings</span>
+      </a>
+    </nav>
+  </div>
+
+  <script type="module">
+    import '@material/web/button/filled-button.js';
+    import '@material/web/iconbutton/icon-button.js';
+    import '@material/web/icon/icon.js';
+  </script>
+</body>
+</html>

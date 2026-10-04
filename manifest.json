@@ -1,0 +1,16 @@
+{
+  "name": "Material 3 Design System",
+  "short_name": "M3 System",
+  "description": "Google Material Design 3 Design System and Component Library",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#FEF7FF",
+  "theme_color": "#6750A4",
+  "icons": [
+    {
+      "src": "./assets/favicon.svg",
+      "sizes": "48x48 192x192 512x512",
+      "type": "image/svg+xml"
+    }
+  ]
+}

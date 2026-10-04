@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In — Material 3 Design System</title>
+  <meta name="description" content="M3 spec-compliant login template for web applications.">
+
+  <!-- Theme Init -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (t && t !== 'auto') document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+
+  <!-- Typography & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+
+  <link rel="stylesheet" href="../styles/theme.css">
+  <link rel="stylesheet" href="../styles/base.css">
+  <link rel="stylesheet" href="../components/bte-card.css">
+
+  <style>
+    .auth-page {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      background-color: var(--md-sys-color-surface-container-lowest);
+    }
+    .auth-card {
+      width: 100%;
+      max-width: 440px;
+      padding: 32px 28px;
+    }
+    .auth-brand {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 24px;
+      text-align: center;
+      gap: 12px;
+    }
+    .auth-logo-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: var(--md-sys-shape-corner-medium);
+      background-color: var(--md-sys-color-primary);
+      color: var(--md-sys-color-on-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .auth-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .auth-form md-filled-text-field {
+      width: 100%;
+    }
+    .auth-options {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  </style>
+</head>
+<body class="auth-page">
+
+  <div class="bte-card bte-card--elevated auth-card">
+    <div class="auth-brand">
+      <div class="auth-logo-icon">
+        <span class="material-symbols-outlined" style="font-size: 32px;">lock</span>
+      </div>
+      <h1 class="md-typescale-headline-small">Welcome back</h1>
+      <p class="md-typescale-body-medium" style="color: var(--md-sys-color-on-surface-variant);">
+        Enter your credentials to access your account
+      </p>
+    </div>
+
+    <form class="auth-form" onsubmit="event.preventDefault();">
+      <md-filled-text-field label="Email address" type="email" required autocomplete="email">
+        <md-icon slot="leading-icon"><span class="material-symbols-outlined">mail</span></md-icon>
+      </md-filled-text-field>
+
+      <md-filled-text-field label="Password" type="password" required autocomplete="current-password">
+        <md-icon slot="leading-icon"><span class="material-symbols-outlined">key</span></md-icon>
+      </md-filled-text-field>
+
+      <div class="auth-options">
+        <label style="display: inline-flex; align-items: center; gap: 8px; cursor: pointer;">
+          <md-checkbox></md-checkbox>
+          <span class="md-typescale-body-medium">Remember me</span>
+        </label>
+        <md-text-button type="button">Forgot password?</md-text-button>
+      </div>
+
+      <md-filled-button type="submit" style="width: 100%;">
+        Sign in
+      </md-filled-button>
+
+      <div style="text-align: center; margin-top: 8px;">
+        <span class="md-typescale-body-medium" style="color: var(--md-sys-color-on-surface-variant);">
+          Don't have an account?
+        </span>
+        <md-text-button type="button">Create account</md-text-button>
+      </div>
+    </form>
+  </div>
+
+  <script type="module">
+    import '@material/web/button/filled-button.js';
+    import '@material/web/button/text-button.js';
+    import '@material/web/textfield/filled-text-field.js';
+    import '@material/web/checkbox/checkbox.js';
+    import '@material/web/icon/icon.js';
+  </script>
+</body>
+</html>

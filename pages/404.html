@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 Page Not Found — Material 3 Design System</title>
+  <meta name="description" content="M3 spec-compliant 404 error page.">
+
+  <!-- Theme Init -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (t && t !== 'auto') document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+
+  <!-- Typography & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+
+  <link rel="stylesheet" href="../styles/theme.css">
+  <link rel="stylesheet" href="../styles/base.css">
+  <link rel="stylesheet" href="../components/bte-page-states.css">
+
+  <style>
+    .not-found-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      text-align: center;
+      background-color: var(--md-sys-color-surface);
+    }
+    .not-found-shape {
+      width: 96px;
+      height: 96px;
+      border-radius: var(--md-sys-shape-corner-extra-large);
+      background-color: var(--md-sys-color-error-container);
+      color: var(--md-sys-color-on-error-container);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+  </style>
+</head>
+<body class="not-found-page">
+
+  <div class="not-found-shape">
+    <span class="material-symbols-outlined" style="font-size: 48px;">warning</span>
+  </div>
+
+  <h1 class="md-typescale-display-small">404</h1>
+  <h2 class="md-typescale-headline-small" style="margin-top: 8px;">Page not found</h2>
+  <p class="md-typescale-body-large" style="max-width: 440px; margin: 12px 0 24px; color: var(--md-sys-color-on-surface-variant);">
+    The page you are looking for doesn't exist or has been relocated to another path.
+  </p>
+
+  <a href="../index.html" style="text-decoration: none;">
+    <md-filled-button>
+      <md-icon slot="icon"><span class="material-symbols-outlined">home</span></md-icon>
+      Back to Home
+    </md-filled-button>
+  </a>
+
+  <script type="module">
+    import '@material/web/button/filled-button.js';
+    import '@material/web/icon/icon.js';
+  </script>
+</body>
+</html>
