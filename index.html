@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Material 3 (M3) Design System & Component Library</title>
   <meta name="description" content="Google Material Design 3 (M3) complete specification-compliant design system, token architecture, and component library.">
+  <meta name="theme-color" content="#6750A4">
   
   <!-- Favicon & PWA Manifest -->
   <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
@@ -46,71 +47,13 @@
   <link rel="stylesheet" href="./components/bte-search.css">
   <link rel="stylesheet" href="./components/bte-segmented-button.css">
 
-  <style>
-    /* Showcase Page Specific Layout */
-    .showcase-content {
-      display: flex;
-      flex-direction: column;
-      gap: 32px;
-      width: 100%;
-      max-width: 1200px;
-      margin-inline: auto;
-    }
-
-    .section-card {
-      background-color: var(--md-sys-color-surface-container-low);
-      border-radius: var(--md-sys-shape-corner-large);
-      padding: 24px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      border: 1px solid var(--md-sys-color-outline-variant);
-    }
-
-    .component-row {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
-
-    .color-swatch-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 12px;
-    }
-
-    .color-swatch {
-      padding: 16px;
-      border-radius: var(--md-sys-shape-corner-medium);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      min-height: 80px;
-      font-size: 13px;
-      font-weight: 500;
-    }
-
-    .window-badge {
-      display: inline-flex;
-      align-items: center;
-      padding: 6px 16px;
-      background-color: var(--md-sys-color-primary-container);
-      color: var(--md-sys-color-on-primary-container);
-      border-radius: var(--md-sys-shape-corner-full);
-      font-family: var(--md-sys-typescale-label-large-font);
-      font-size: var(--md-sys-typescale-label-large-size);
-      font-weight: var(--md-sys-typescale-label-large-weight);
-    }
-  </style>
+  <!-- Showcase Page Styles -->
+  <link rel="stylesheet" href="./styles/showcase.css">
 </head>
 <body>
+  <!-- Accessible Skip Navigation Link (WCAG 2.2 AA) -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
   <div class="m3-layout-root">
     
     <!-- Navigation Drawer (Expanded Screens >= 840px) -->
@@ -123,6 +66,10 @@
       <button class="bte-nav-drawer__item" type="button" onclick="document.getElementById('buttons-section').scrollIntoView({behavior: 'smooth'})">
         <span class="material-symbols-outlined">smart_button</span>
         Components
+      </button>
+      <button class="bte-nav-drawer__item" type="button" onclick="document.getElementById('tabs-section').scrollIntoView({behavior: 'smooth'})">
+        <span class="material-symbols-outlined">tab</span>
+        Navigation & Lists
       </button>
       <button class="bte-nav-drawer__item" type="button" onclick="document.getElementById('cards-section').scrollIntoView({behavior: 'smooth'})">
         <span class="material-symbols-outlined">view_agenda</span>
@@ -137,7 +84,7 @@
     <!-- Navigation Rail (Medium Screens: 600px - 839px) -->
     <nav class="bte-nav-rail" aria-label="Compact Navigation Rail">
       <div class="bte-nav-rail__header">
-        <span class="material-symbols-outlined" style="font-size: 32px; color: var(--md-sys-color-primary);">palette</span>
+        <span class="material-symbols-outlined rail-logo-icon">palette</span>
       </div>
       <button class="bte-nav-rail__item bte-nav-rail__item--active" type="button" aria-label="Overview" aria-current="page">
         <div class="bte-nav-rail__icon-container">
@@ -151,6 +98,12 @@
         </div>
         <span class="md-typescale-label-small">Elements</span>
       </button>
+      <button class="bte-nav-rail__item" type="button" aria-label="Lists and Tabs" onclick="document.getElementById('tabs-section').scrollIntoView({behavior: 'smooth'})">
+        <div class="bte-nav-rail__icon-container">
+          <span class="material-symbols-outlined">tab</span>
+        </div>
+        <span class="md-typescale-label-small">Lists</span>
+      </button>
       <button class="bte-nav-rail__item" type="button" aria-label="States" onclick="document.getElementById('states-section').scrollIntoView({behavior: 'smooth'})">
         <div class="bte-nav-rail__icon-container">
           <span class="material-symbols-outlined">error_outline</span>
@@ -160,7 +113,7 @@
     </nav>
 
     <!-- Main Content Area -->
-    <div style="flex: 1; display: flex; flex-direction: column; min-width: 0;">
+    <div class="content-wrapper">
       
       <!-- Top App Bar -->
       <header class="bte-top-app-bar" id="app-bar">
@@ -173,13 +126,35 @@
         
         <div class="bte-top-app-bar__actions">
           <!-- Theme Selector -->
-          <md-outlined-select id="theme-selector" label="Theme" aria-label="Select Color Theme" style="min-width: 140px;">
+          <md-outlined-select id="theme-selector" class="theme-selector-control" label="Theme" aria-label="Select Color Theme">
             <md-select-option value="auto" selected>Auto</md-select-option>
             <md-select-option value="light">Light</md-select-option>
             <md-select-option value="dark">Dark</md-select-option>
             <md-select-option value="high-contrast-light">HC Light</md-select-option>
             <md-select-option value="high-contrast-dark">HC Dark</md-select-option>
           </md-outlined-select>
+
+          <!-- Menu Anchor & Trigger -->
+          <span class="position-relative">
+            <md-icon-button id="menu-anchor-button" aria-label="Open More Options Menu">
+              <md-icon><span class="material-symbols-outlined">more_vert</span></md-icon>
+            </md-icon-button>
+            <md-menu id="header-menu" anchor="menu-anchor-button">
+              <md-menu-item href="./pages/settings.html">
+                <div slot="headline">Quick Settings</div>
+                <md-icon slot="start"><span class="material-symbols-outlined">settings</span></md-icon>
+              </md-menu-item>
+              <md-menu-item href="./pages/onboarding.html">
+                <div slot="headline">Onboarding Tour</div>
+                <md-icon slot="start"><span class="material-symbols-outlined">explore</span></md-icon>
+              </md-menu-item>
+              <md-divider></md-divider>
+              <md-menu-item href="https://m3.material.io" target="_blank">
+                <div slot="headline">Material 3 Specs</div>
+                <md-icon slot="start"><span class="material-symbols-outlined">open_in_new</span></md-icon>
+              </md-menu-item>
+            </md-menu>
+          </span>
 
           <md-icon-button id="dialog-trigger" aria-label="Information">
             <md-icon><span class="material-symbols-outlined">info</span></md-icon>
@@ -188,15 +163,15 @@
       </header>
 
       <!-- Scrollable Main Container -->
-      <main class="m3-main-container">
+      <main class="m3-main-container" id="main-content">
         <div class="showcase-content">
 
           <!-- Header / Status Banner -->
           <section class="section-card">
-            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+            <div class="flex-row justify-between items-center flex-wrap gap-3">
               <div>
                 <h2 class="md-typescale-headline-medium">Material 3 Foundations & Tokens</h2>
-                <p class="md-typescale-body-large" style="color: var(--md-sys-color-on-surface-variant); margin-top: 4px;">
+                <p class="md-typescale-body-large text-on-surface-variant mt-1">
                   Specification-compliant design system ready for AI agent integration and production deployment.
                 </p>
               </div>
@@ -206,31 +181,31 @@
             <!-- Color Palette Roles -->
             <h3 class="md-typescale-title-large">Core Color Roles</h3>
             <div class="color-swatch-grid">
-              <div class="color-swatch" style="background: var(--md-sys-color-primary); color: var(--md-sys-color-on-primary);">
+              <div class="color-swatch color-swatch--primary">
                 <span>Primary</span>
                 <span>Container: on-primary</span>
               </div>
-              <div class="color-swatch" style="background: var(--md-sys-color-primary-container); color: var(--md-sys-color-on-primary-container);">
+              <div class="color-swatch color-swatch--primary-container">
                 <span>Primary Container</span>
                 <span>on-primary-container</span>
               </div>
-              <div class="color-swatch" style="background: var(--md-sys-color-secondary); color: var(--md-sys-color-on-secondary);">
+              <div class="color-swatch color-swatch--secondary">
                 <span>Secondary</span>
                 <span>on-secondary</span>
               </div>
-              <div class="color-swatch" style="background: var(--md-sys-color-secondary-container); color: var(--md-sys-color-on-secondary-container);">
+              <div class="color-swatch color-swatch--secondary-container">
                 <span>Secondary Container</span>
                 <span>on-secondary-container</span>
               </div>
-              <div class="color-swatch" style="background: var(--md-sys-color-tertiary); color: var(--md-sys-color-on-tertiary);">
+              <div class="color-swatch color-swatch--tertiary">
                 <span>Tertiary</span>
                 <span>on-tertiary</span>
               </div>
-              <div class="color-swatch" style="background: var(--md-sys-color-surface-container); color: var(--md-sys-color-on-surface);">
+              <div class="color-swatch color-swatch--surface-container">
                 <span>Surface Container</span>
                 <span>on-surface</span>
               </div>
-              <div class="color-swatch" style="background: var(--md-sys-color-error); color: var(--md-sys-color-on-error);">
+              <div class="color-swatch color-swatch--error">
                 <span>Error</span>
                 <span>on-error</span>
               </div>
@@ -255,11 +230,11 @@
             </div>
 
             <!-- M3 Segmented Buttons -->
-            <div style="display: flex; flex-direction: column; gap: 8px;">
+            <div class="flex-col gap-2">
               <span class="md-typescale-label-medium">Segmented Button Set:</span>
               <div class="bte-segmented-button-set" role="radiogroup" aria-label="View Mode">
                 <button type="button" class="bte-segmented-button bte-segmented-button--selected" role="radio" aria-checked="true">
-                  <span class="material-symbols-outlined" style="font-size: 18px;">check</span> Day
+                  <span class="material-symbols-outlined segmented-icon">check</span> Day
                 </button>
                 <button type="button" class="bte-segmented-button" role="radio" aria-checked="false">Week</button>
                 <button type="button" class="bte-segmented-button" role="radio" aria-checked="false">Month</button>
@@ -308,10 +283,57 @@
             </div>
           </section>
 
+          <!-- Tabs, Lists & Dividers (Newly Added M3 Components) -->
+          <section class="section-card" id="tabs-section">
+            <h2 class="md-typescale-headline-small">Tabs, Lists & Dividers (@material/web)</h2>
+            
+            <!-- Primary and Secondary Tabs -->
+            <div class="flex-col gap-2">
+              <span class="md-typescale-label-medium">Primary Navigation Tabs:</span>
+              <md-tabs aria-label="Showcase Navigation Tabs">
+                <md-primary-tab active>
+                  <md-icon slot="icon"><span class="material-symbols-outlined">home</span></md-icon>
+                  Home
+                </md-primary-tab>
+                <md-primary-tab>
+                  <md-icon slot="icon"><span class="material-symbols-outlined">explore</span></md-icon>
+                  Explore
+                </md-primary-tab>
+                <md-primary-tab>
+                  <md-icon slot="icon"><span class="material-symbols-outlined">favorite</span></md-icon>
+                  Favorites
+                </md-primary-tab>
+              </md-tabs>
+            </div>
+
+            <!-- List & Divider Showcase -->
+            <div class="flex-col gap-2 mt-2">
+              <span class="md-typescale-label-medium">List Items with Leading/Trailing Elements & Divider:</span>
+              <div class="list-demo-container">
+                <md-list>
+                  <md-list-item headline="Design Tokens" supporting-text="Color, shape, elevation">
+                    <md-icon slot="start"><span class="material-symbols-outlined">palette</span></md-icon>
+                    <span slot="end" class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+                  </md-list-item>
+                  <md-divider></md-divider>
+                  <md-list-item headline="Components" supporting-text="Stable web components">
+                    <md-icon slot="start"><span class="material-symbols-outlined">widgets</span></md-icon>
+                    <span slot="end" class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+                  </md-list-item>
+                  <md-divider></md-divider>
+                  <md-list-item headline="Accessibility" supporting-text="WCAG 2.2 AA compliant">
+                    <md-icon slot="start"><span class="material-symbols-outlined">accessibility</span></md-icon>
+                    <span slot="end" class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+                  </md-list-item>
+                </md-list>
+              </div>
+            </div>
+          </section>
+
           <!-- Inputs & Selectors -->
           <section class="section-card">
             <h2 class="md-typescale-headline-small">Text Fields & Selection Controls</h2>
-            <div class="component-row" style="align-items: flex-start;">
+            <div class="component-row items-start">
               <md-filled-text-field label="Filled Text Field" supporting-text="Helper text goes here" value="Material 3 Input"></md-filled-text-field>
               <md-outlined-text-field label="Outlined Field" supporting-text="Requires valid text"></md-outlined-text-field>
               <md-filled-select label="Select Framework">
@@ -322,30 +344,30 @@
             </div>
 
             <div class="component-row">
-              <label style="display: inline-flex; align-items: center; gap: 8px; cursor: pointer;">
-                <md-checkbox checked></md-checkbox>
+              <label class="form-label-row">
+                <md-checkbox checked aria-label="Checkbox Example"></md-checkbox>
                 <span class="md-typescale-body-medium">Checkbox</span>
               </label>
 
-              <label style="display: inline-flex; align-items: center; gap: 8px; cursor: pointer;">
-                <md-radio name="m3-radio" checked></md-radio>
+              <label class="form-label-row">
+                <md-radio name="m3-radio" checked aria-label="Radio Option 1"></md-radio>
                 <span class="md-typescale-body-medium">Radio Option 1</span>
               </label>
 
-              <label style="display: inline-flex; align-items: center; gap: 8px; cursor: pointer;">
-                <md-radio name="m3-radio"></md-radio>
+              <label class="form-label-row">
+                <md-radio name="m3-radio" aria-label="Radio Option 2"></md-radio>
                 <span class="md-typescale-body-medium">Radio Option 2</span>
               </label>
 
-              <label style="display: inline-flex; align-items: center; gap: 8px; cursor: pointer;">
-                <md-switch selected></md-switch>
+              <label class="form-label-row">
+                <md-switch selected aria-label="Switch Toggle"></md-switch>
                 <span class="md-typescale-body-medium">Switch Toggle</span>
               </label>
             </div>
 
-            <div>
+            <div class="slider-control-wrapper">
               <span class="md-typescale-label-medium">Slider Control</span>
-              <md-slider min="0" max="100" value="65" labeled style="width: 100%; max-width: 400px;"></md-slider>
+              <md-slider min="0" max="100" value="65" labeled class="w-100" aria-label="Volume Slider"></md-slider>
             </div>
           </section>
 
@@ -368,7 +390,7 @@
             <div class="card-grid">
               
               <!-- Elevated Card -->
-              <div class="bte-card bte-card--elevated" tabindex="0">
+              <div class="bte-card bte-card--elevated" tabindex="0" role="region" aria-label="Elevated Card Example">
                 <h3 class="bte-card__headline">Elevated Card</h3>
                 <span class="bte-card__subhead">Surface Container Low + Level 1 Shadow</span>
                 <p class="bte-card__body">
@@ -381,7 +403,7 @@
               </div>
 
               <!-- Filled Card -->
-              <div class="bte-card bte-card--filled" tabindex="0">
+              <div class="bte-card bte-card--filled" tabindex="0" role="region" aria-label="Filled Card Example">
                 <h3 class="bte-card__headline">Filled Card</h3>
                 <span class="bte-card__subhead">Surface Container Highest</span>
                 <p class="bte-card__body">
@@ -394,7 +416,7 @@
               </div>
 
               <!-- Outlined Card -->
-              <div class="bte-card bte-card--outlined" tabindex="0">
+              <div class="bte-card bte-card--outlined" tabindex="0" role="region" aria-label="Outlined Card Example">
                 <h3 class="bte-card__headline">Outlined Card</h3>
                 <span class="bte-card__subhead">Outline Variant Border</span>
                 <p class="bte-card__body">
@@ -411,14 +433,14 @@
           <!-- Spec-Built Page States Showcase -->
           <section class="section-card" id="states-section">
             <h2 class="md-typescale-headline-small">Required M3 Page States</h2>
-            <p class="md-typescale-body-medium" style="color: var(--md-sys-color-on-surface-variant);">
+            <p class="md-typescale-body-medium text-on-surface-variant">
               M3 requires every page and view to handle empty, error, and loading states gracefully.
             </p>
 
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px;">
+            <div class="states-showcase-grid">
               
               <!-- Empty State -->
-              <div class="bte-state-container">
+              <div class="bte-state-container" role="status">
                 <div class="bte-state-icon">
                   <span class="material-symbols-outlined">inbox</span>
                 </div>
@@ -435,7 +457,7 @@
               </div>
 
               <!-- Error State with Retry -->
-              <div class="bte-state-container bte-state-container--error">
+              <div class="bte-state-container bte-state-container--error" role="alert">
                 <div class="bte-state-icon">
                   <span class="material-symbols-outlined">cloud_off</span>
                 </div>
@@ -454,11 +476,11 @@
             </div>
 
             <!-- Progress Indicators -->
-            <div style="display: flex; flex-direction: column; gap: 16px; margin-top: 16px;">
+            <div class="flex-col gap-4 mt-4">
               <span class="md-typescale-title-small">Loading Indicators:</span>
-              <div style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap;">
+              <div class="progress-indicators-group">
                 <md-circular-progress indeterminate aria-label="Loading circular progress"></md-circular-progress>
-                <div style="flex: 1; min-width: 200px;">
+                <div class="linear-progress-wrapper">
                   <md-linear-progress indeterminate aria-label="Loading linear progress"></md-linear-progress>
                 </div>
               </div>
@@ -468,29 +490,47 @@
           <!-- Production Page Templates -->
           <section class="section-card">
             <h2 class="md-typescale-headline-small">Turnkey Page Templates (/pages)</h2>
-            <p class="md-typescale-body-medium" style="color: var(--md-sys-color-on-surface-variant);">
+            <p class="md-typescale-body-medium text-on-surface-variant">
               Ready-to-use M3 page boilerplates built for AI agents and rapid frontend creation.
             </p>
             <div class="component-row">
-              <a href="./pages/starter-template.html" style="text-decoration: none;">
+              <a href="./pages/starter-template.html" class="no-decoration">
                 <md-filled-tonal-button>
                   <md-icon slot="icon"><span class="material-symbols-outlined">description</span></md-icon>
                   Starter Template
                 </md-filled-tonal-button>
               </a>
-              <a href="./pages/login.html" style="text-decoration: none;">
+              <a href="./pages/login.html" class="no-decoration">
                 <md-outlined-button>
                   <md-icon slot="icon"><span class="material-symbols-outlined">lock</span></md-icon>
                   Sign In Page
                 </md-outlined-button>
               </a>
-              <a href="./pages/settings.html" style="text-decoration: none;">
+              <a href="./pages/settings.html" class="no-decoration">
                 <md-outlined-button>
                   <md-icon slot="icon"><span class="material-symbols-outlined">settings</span></md-icon>
                   Settings Page
                 </md-outlined-button>
               </a>
-              <a href="./pages/404.html" style="text-decoration: none;">
+              <a href="./pages/onboarding.html" class="no-decoration">
+                <md-outlined-button>
+                  <md-icon slot="icon"><span class="material-symbols-outlined">explore</span></md-icon>
+                  Onboarding Page
+                </md-outlined-button>
+              </a>
+              <a href="./pages/profile.html" class="no-decoration">
+                <md-outlined-button>
+                  <md-icon slot="icon"><span class="material-symbols-outlined">account_circle</span></md-icon>
+                  Profile Page
+                </md-outlined-button>
+              </a>
+              <a href="./pages/offline.html" class="no-decoration">
+                <md-outlined-button>
+                  <md-icon slot="icon"><span class="material-symbols-outlined">cloud_off</span></md-icon>
+                  Offline Page
+                </md-outlined-button>
+              </a>
+              <a href="./pages/404.html" class="no-decoration">
                 <md-outlined-button>
                   <md-icon slot="icon"><span class="material-symbols-outlined">error</span></md-icon>
                   404 Error Page
@@ -576,6 +616,13 @@
     import '@material/web/progress/circular-progress.js';
     import '@material/web/progress/linear-progress.js';
     import '@material/web/dialog/dialog.js';
+    import '@material/web/menu/menu.js';
+    import '@material/web/menu/menu-item.js';
+    import '@material/web/list/list.js';
+    import '@material/web/list/list-item.js';
+    import '@material/web/tabs/tabs.js';
+    import '@material/web/tabs/primary-tab.js';
+    import '@material/web/divider/divider.js';
 
     import { setTheme, getStoredTheme } from './components/bte-theme.js';
     import { showSnackbar } from './components/bte-snackbar.js';
@@ -588,6 +635,15 @@
     themeSelector.addEventListener('change', () => {
       setTheme(themeSelector.value);
     });
+
+    // Header Menu Trigger Integration
+    const menuBtn = document.getElementById('menu-anchor-button');
+    const headerMenu = document.getElementById('header-menu');
+    if (menuBtn && headerMenu) {
+      menuBtn.addEventListener('click', () => {
+        headerMenu.open = !headerMenu.open;
+      });
+    }
 
     // Snackbar Trigger Integration
     const snackbarBtn = document.getElementById('snackbar-trigger');

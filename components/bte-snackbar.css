@@ -5,12 +5,12 @@
 
 .bte-snackbar-host {
   position: fixed;
-  bottom: 24px;
-  left: 50%;
+  inset-block-end: 24px;
+  inset-inline-start: 50%;
   transform: translateX(-50%);
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: var(--md-sys-spacing-2, 8px);
   z-index: 1000;
   pointer-events: none;
   max-width: calc(100vw - 32px);
@@ -20,9 +20,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  gap: var(--md-sys-spacing-4, 16px);
   min-height: 48px;
-  padding: 8px 16px;
+  padding-block: 8px;
+  padding-inline: 16px;
   border-radius: var(--md-sys-shape-corner-extra-small);
   background-color: var(--md-sys-color-inverse-surface);
   color: var(--md-sys-color-inverse-on-surface);
@@ -55,12 +56,13 @@
   font-size: var(--md-sys-typescale-label-large-size);
   font-weight: var(--md-sys-typescale-label-large-weight);
   cursor: pointer;
-  padding: 0 8px;
+  padding-block: 0;
+  padding-inline: 8px;
   min-height: 36px;
   border-radius: var(--md-sys-shape-corner-extra-small);
   transition: background-color var(--md-sys-motion-duration-short2) var(--md-sys-motion-easing-linear);
 }
 
 .bte-snackbar__action:hover {
-  background-color: rgba(255, 255, 255, 0.08);
+  background-color: color-mix(in srgb, var(--md-sys-color-inverse-primary) calc(var(--md-sys-state-hover-state-layer-opacity) * 100%), transparent);
 }

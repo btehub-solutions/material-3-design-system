@@ -391,6 +391,7 @@ Next verification due: 2027-01-02
 | 2026-10-04 | Added exact-pin install command (2.5.0) and "no CDN in production" rule | Latest version check, maintenance mode status | Claude |
 | 2026-10-04 | Added Expressive clarification | Google states Expressive is not a new version | Claude |
 | 2026-10-04 | Initialized package.json with exact pinned @material/web@2.5.0, built tokens, base styles, spec components, and test showcase | Implementation pass & verification | Antigravity |
+| 2026-10-04 | Remediated all 27 audit gaps: added spacing tokens, logical CSS properties (RTL), extracted all inline styles, added onboarding/profile/offline pages, skip links, menu/list/tabs components, and comprehensive docs | Best-practice audit remediation | Antigravity |
 
 ---
 

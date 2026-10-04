@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome & Onboarding — Material 3 Design System</title>
+  <meta name="description" content="M3 spec-compliant onboarding flow template.">
+  <meta name="theme-color" content="#6750A4">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+
+  <!-- Theme Init -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (t && t !== 'auto') document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+
+  <!-- Typography & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+
+  <link rel="stylesheet" href="../styles/theme.css">
+  <link rel="stylesheet" href="../styles/base.css">
+  <link rel="stylesheet" href="../components/bte-card.css">
+  <link rel="stylesheet" href="../styles/auth.css">
+</head>
+<body>
+  <!-- Accessible Skip Navigation Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <main id="main-content" class="auth-page">
+    <div class="bte-card bte-card--elevated auth-card" role="region" aria-label="Product Onboarding">
+      
+      <!-- Stepper Progress Indicator -->
+      <div class="flex-row items-center justify-between mb-4">
+        <span class="md-typescale-label-medium text-primary">Step 1 of 3</span>
+        <div class="flex-row gap-1">
+          <span class="bte-badge-dot position-relative"></span>
+        </div>
+      </div>
+
+      <div class="auth-brand">
+        <div class="auth-logo-icon">
+          <span class="material-symbols-outlined">explore</span>
+        </div>
+        <h1 class="md-typescale-headline-small">Welcome to Material 3</h1>
+        <p class="md-typescale-body-medium text-on-surface-variant">
+          Experience full-fidelity Google Material Design 3 tokens, web components, and adaptive responsive layouts.
+        </p>
+      </div>
+
+      <!-- Feature Highlights -->
+      <div class="flex-col gap-3 mb-6">
+        <div class="flex-row items-center gap-3">
+          <span class="material-symbols-outlined text-primary">palette</span>
+          <span class="md-typescale-body-medium">Dynamic token system for light, dark, and high-contrast</span>
+        </div>
+        <div class="flex-row items-center gap-3">
+          <span class="material-symbols-outlined text-primary">devices</span>
+          <span class="md-typescale-body-medium">Adaptive Compact, Medium, and Expanded layouts</span>
+        </div>
+        <div class="flex-row items-center gap-3">
+          <span class="material-symbols-outlined text-primary">verified_user</span>
+          <span class="md-typescale-body-medium">WCAG 2.2 AA compliant contrast and keyboard accessibility</span>
+        </div>
+      </div>
+
+      <!-- Onboarding Actions -->
+      <div class="flex-row justify-between items-center mt-4">
+        <a href="starter-template.html" class="no-decoration">
+          <md-text-button type="button">Skip</md-text-button>
+        </a>
+        <a href="starter-template.html" class="no-decoration">
+          <md-filled-button type="button">
+            Get Started
+            <md-icon slot="icon"><span class="material-symbols-outlined">arrow_forward</span></md-icon>
+          </md-filled-button>
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <script type="module">
+    import '@material/web/button/filled-button.js';
+    import '@material/web/button/text-button.js';
+    import '@material/web/icon/icon.js';
+  </script>
+</body>
+</html>

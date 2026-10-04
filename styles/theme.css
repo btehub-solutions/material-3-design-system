@@ -18,6 +18,19 @@
   --md-sys-shape-corner-extra-large: 28px;
   --md-sys-shape-corner-full: 9999px;
 
+  /* Spacing Scale (4dp / 8dp system) */
+  --md-sys-spacing-0: 0px;
+  --md-sys-spacing-1: 4px;
+  --md-sys-spacing-2: 8px;
+  --md-sys-spacing-3: 12px;
+  --md-sys-spacing-4: 16px;
+  --md-sys-spacing-5: 20px;
+  --md-sys-spacing-6: 24px;
+  --md-sys-spacing-7: 32px;
+  --md-sys-spacing-8: 40px;
+  --md-sys-spacing-9: 48px;
+  --md-sys-spacing-10: 64px;
+
   /* State Layer Opacities */
   --md-sys-state-hover-state-layer-opacity: 0.08;
   --md-sys-state-focus-state-layer-opacity: 0.12;

@@ -35,8 +35,12 @@ Compiles all pages (`index.html`, `pages/login.html`, `pages/settings.html`, `pa
 │   └── workflows/
 │       └── deploy.yml        # Automated GitHub Pages CI/CD workflow
 ├── styles/
-│   ├── theme.css             # M3 tokens (Color roles, Light/Dark/High-Contrast, Shapes, Motion, Elevation)
-│   └── base.css              # M3 reset, typography scale utility classes, window size classes
+│   ├── theme.css             # M3 tokens (Color roles, Light/Dark/High-Contrast, Shapes, Motion, Elevation, Spacing)
+│   ├── base.css              # M3 reset, typography scale utility classes, window size classes, skip link
+│   ├── showcase.css          # Showcase page styles (swatches, layout grids)
+│   ├── auth.css              # Authentication & onboarding layout styles
+│   ├── settings-page.css     # Settings & profile preferences styles
+│   └── error-page.css        # 404 & offline state page styles
 ├── components/
 │   ├── bte-card.css          # Spec-compliant Elevated, Filled, and Outlined cards
 │   ├── bte-navigation.css    # Navigation Bar (Compact), Navigation Rail (Medium), Drawer (Expanded)
@@ -52,7 +56,13 @@ Compiles all pages (`index.html`, `pages/login.html`, `pages/settings.html`, `pa
 │   ├── starter-template.html # Clean canonical boilerplate for new pages
 │   ├── login.html            # Authentication & sign-in template
 │   ├── settings.html         # Application preferences & theme switcher template
+│   ├── onboarding.html       # Product welcome & onboarding tour template
+│   ├── profile.html          # User profile & account security template
+│   ├── offline.html          # Offline fallback template
 │   └── 404.html              # Illustrated error page
+├── docs/
+│   ├── component-catalog.md  # Comprehensive component catalog & API reference
+│   └── token-reference.md    # Design token system documentation
 ├── assets/
 │   ├── shapes/               # Extracted official M3 SVG shapes (cookies, bursts, pills, gems, etc.)
 │   ├── figma-kit/            # Official Figma M3 Design Kit archives and slices
@@ -61,6 +71,7 @@ Compiles all pages (`index.html`, `pages/login.html`, `pages/settings.html`, `pa
 ├── vite.config.js            # Multi-page build configuration
 ├── index.html                # Live interactive M3 Kitchen Sink demonstration
 ├── package.json              # Pinned dependencies & scripts
+├── LICENSE                   # Apache-2.0 License
 ├── DESIGN-SYSTEM.md          # Single source of truth for M3 rules, tokens, and components
 ├── AGENTS.md                 # Rules & context for AI coding agents
 └── ILLUSTRATION-GUIDE.md     # Illustration & brand art standards
@@ -87,7 +98,9 @@ All color, typography, shape, and motion decisions flow through CSS custom prope
 - **Buttons**: Filled, Elevated, Filled Tonal, Outlined, Text, FAB, Icon Buttons.
 - **Inputs & Selects**: Filled Text Field, Outlined Text Field, Select, Checkbox, Radio, Switch, Slider.
 - **Chips**: Assist, Filter, Input, Suggestion chips.
-- **Overlays & Progress**: Dialog, Menus, Linear Progress, Circular Progress.
+- **Navigation & Tabs**: Tabs, Primary Tab, Secondary Tab.
+- **Lists & Menus**: List, List Item, Menu, Menu Item, Divider.
+- **Overlays & Progress**: Dialog, Linear Progress, Circular Progress.
 
 ### Spec-Built Custom Components
 - `bte-card`: Elevated, Filled, and Outlined cards with standard M3 hover/focus states and elevation layers.

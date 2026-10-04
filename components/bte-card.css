@@ -9,7 +9,7 @@
   display: flex;
   flex-direction: column;
   border-radius: var(--md-sys-shape-corner-medium);
-  padding: 16px;
+  padding: var(--md-sys-spacing-4, 16px);
   overflow: hidden;
   text-decoration: none;
   color: var(--md-sys-color-on-surface);
@@ -109,7 +109,7 @@
   font-weight: var(--md-sys-typescale-title-large-weight);
   line-height: var(--md-sys-typescale-title-large-line-height);
   color: var(--md-sys-color-on-surface);
-  margin-bottom: 4px;
+  margin-block-end: var(--md-sys-spacing-1, 4px);
 }
 
 .bte-card__subhead {
@@ -118,7 +118,7 @@
   font-weight: var(--md-sys-typescale-body-medium-weight);
   line-height: var(--md-sys-typescale-body-medium-line-height);
   color: var(--md-sys-color-on-surface-variant);
-  margin-bottom: 12px;
+  margin-block-end: var(--md-sys-spacing-3, 12px);
 }
 
 .bte-card__body {
@@ -133,7 +133,7 @@
 .bte-card__actions {
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin-top: 16px;
+  gap: var(--md-sys-spacing-2, 8px);
+  margin-block-start: var(--md-sys-spacing-4, 16px);
   justify-content: flex-end;
 }

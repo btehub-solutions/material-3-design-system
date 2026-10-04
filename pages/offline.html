@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>404 Page Not Found — Material 3 Design System</title>
-  <meta name="description" content="M3 spec-compliant 404 error page.">
+  <title>Offline — Material 3 Design System</title>
+  <meta name="description" content="M3 spec-compliant offline page.">
   <meta name="theme-color" content="#6750A4">
 
   <!-- Favicon -->
@@ -37,26 +37,42 @@
 
   <main id="main-content" class="error-page-container">
     <div class="error-page-icon-badge" aria-hidden="true">
-      <span class="material-symbols-outlined">warning</span>
+      <span class="material-symbols-outlined">cloud_off</span>
     </div>
 
-    <h1 class="md-typescale-display-small">404</h1>
-    <h2 class="md-typescale-headline-small mt-2">Page not found</h2>
+    <h1 class="md-typescale-display-small">You're offline</h1>
+    <h2 class="md-typescale-headline-small mt-2">No internet connection detected</h2>
     <p class="md-typescale-body-large error-page-description">
-      The page you are looking for doesn't exist or has been relocated to another path.
+      Your internet connection is currently unavailable. Cached design system components and documentation remain functional.
     </p>
 
-    <a href="../index.html" class="no-decoration">
-      <md-filled-button>
-        <md-icon slot="icon"><span class="material-symbols-outlined">home</span></md-icon>
-        Back to Home
+    <div class="flex-row items-center gap-3">
+      <md-filled-button type="button" id="retry-btn">
+        <md-icon slot="icon"><span class="material-symbols-outlined">refresh</span></md-icon>
+        Retry Connection
       </md-filled-button>
-    </a>
+
+      <a href="../index.html" class="no-decoration">
+        <md-outlined-button type="button">
+          <md-icon slot="icon"><span class="material-symbols-outlined">home</span></md-icon>
+          Home
+        </md-outlined-button>
+      </a>
+    </div>
   </main>
 
   <script type="module">
     import '@material/web/button/filled-button.js';
+    import '@material/web/button/outlined-button.js';
     import '@material/web/icon/icon.js';
+
+    document.getElementById('retry-btn').addEventListener('click', () => {
+      if (navigator.onLine) {
+        window.location.reload();
+      } else {
+        alert('Still offline. Please check your network connection.');
+      }
+    });
   </script>
 </body>
 </html>
