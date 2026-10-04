@@ -127,3 +127,95 @@ Components built from the official Google Material Design 3 specification where 
 ### `bte-theme` (`components/bte-theme.js`)
 - **Theme Modes**: `auto`, `light`, `dark`, `high-contrast-light`, `high-contrast-dark`.
 - **Zero Flash**: Supported via inline `<script>` initializer in `<head>`.
+
+### `bte-tooltip` (`components/bte-tooltip.css` & `components/bte-tooltip.js`)
+- **Plain Tooltip**: 24dp height, Inverse Surface background, Inverse On Surface text, Level 1 shadow.
+- **Rich Tooltip**: 200–320dp width container with subhead, body text, and optional primary action buttons.
+- **Controller API**:
+  ```javascript
+  import { attachTooltip } from './components/bte-tooltip.js';
+
+  attachTooltip(anchorElement, {
+    rich: true,
+    subhead: 'Rich Tooltip',
+    text: 'Provides detailed contextual assistance.',
+    actionText: 'Learn More',
+    onAction: () => console.log('Action clicked')
+  });
+  ```
+
+### `bte-bottom-sheet` (`components/bte-bottom-sheet.css` & `components/bte-bottom-sheet.js`)
+- **Container**: Surface Container Low with 28dp rounded top corners and 32x4dp pill drag handle.
+- **Backdrop Scrim**: Semi-transparent scrim with smooth enter/leave animations and click-outside dismissal.
+- **Controller API**:
+  ```javascript
+  import { createBottomSheet } from './components/bte-bottom-sheet.js';
+
+  const sheet = createBottomSheet({
+    title: 'Actions',
+    content: 'Bottom sheet content...',
+    actions: [{ text: 'Cancel' }, { text: 'Confirm', variant: 'filled' }]
+  });
+  sheet.open();
+  ```
+
+### `bte-side-sheet` (`components/bte-side-sheet.css` & `components/bte-side-sheet.js`)
+- **Width**: Standard 400dp side panel with rounded start edges and Level 1 elevation.
+- **Controller API**:
+  ```javascript
+  import { createSideSheet } from './components/bte-side-sheet.js';
+
+  const sideSheet = createSideSheet({
+    title: 'Filters',
+    content: 'Filter options...',
+    actions: [{ text: 'Reset' }, { text: 'Apply', variant: 'filled' }]
+  });
+  sideSheet.open();
+  ```
+
+### `bte-date-picker` (`components/bte-date-picker.css` & `components/bte-date-picker.js`)
+- **Calendar Grid**: Full M3 calendar month grid with year/month pagination and weekday header.
+- **States**: Today circular outline, selected date filled pill (`primary`), hover state layers.
+- **Controller API**:
+  ```javascript
+  import { createDatePicker } from './components/bte-date-picker.js';
+
+  const picker = createDatePicker({
+    onDateSelect: (selectedDate) => console.log(selectedDate)
+  });
+  document.getElementById('picker-container').appendChild(picker.element);
+  ```
+
+### `bte-time-picker` (`components/bte-time-picker.css` & `components/bte-time-picker.js`)
+- **Clock Face**: 256dp circular dial face with hour/minute selector hand.
+- **Display**: Digital hours and minutes display box with AM/PM toggle selector.
+- **Controller API**:
+  ```javascript
+  import { createTimePicker } from './components/bte-time-picker.js';
+
+  const timePicker = createTimePicker({
+    onTimeSelect: ({ hours, minutes, period, formatted }) => console.log(formatted)
+  });
+  document.getElementById('time-container').appendChild(timePicker.element);
+  ```
+
+### `bte-carousel` (`components/bte-carousel.css` & `components/bte-carousel.js`)
+- **Layout**: Multi-browse and Hero scroll snap container (`scroll-snap-type: x mandatory`).
+- **Cards**: 28dp corner radii with subtle hover elevation and smooth navigation arrows.
+
+### `bte-bottom-app-bar` (`components/bte-bottom-app-bar.css`)
+- **Height**: 80dp sticky bar supporting left navigation/action icons and right-aligned embedded FAB.
+
+### `bte-dynamic-color` (`components/bte-dynamic-color.js`)
+- **Material You Engine**: Algorithmic generation of complete 37-token tonal palettes from *any* hex seed color in real time.
+- **Theme Support**: Generates Light, Dark, High-Contrast Light, and High-Contrast Dark schemes dynamically with zero external dependencies.
+- **API**:
+  ```javascript
+  import { applyDynamicSeedColor, resetDynamicSeedColor } from './components/bte-dynamic-color.js';
+
+  // Apply custom brand seed:
+  applyDynamicSeedColor('#006A6A');
+
+  // Reset to default baseline:
+  resetDynamicSeedColor();
+  ```

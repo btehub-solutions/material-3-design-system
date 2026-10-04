@@ -2,6 +2,15 @@
 
 A complete, specification-compliant Google Material Design 3 (M3) design system, token architecture, component library, and template suite ready for AI agents, production web applications, and UI engineering workflows.
 
+> [!TIP]
+> **🤖 NOTICE FOR AI AGENTS & CODING ASSISTANTS**
+> This repository is the canonical **single source of truth** for all UI design, tokens, and frontend code.
+> Any AI agent (Google Antigravity IDE & Agent, GitHub Copilot, Claude Code, Cursor, Windsurf, Cline) reading this repo **MUST** strictly adhere to the guidelines set in [`GEMINI.md`](./GEMINI.md), [`AGENTS.md`](./AGENTS.md), [`DESIGN-SYSTEM.md`](./DESIGN-SYSTEM.md), [`.cursorrules`](./.cursorrules), [`CLAUDE.md`](./CLAUDE.md), and [`.github/copilot-instructions.md`](./.github/copilot-instructions.md).
+>
+> ❌ **NEVER** use Tailwind CSS, Bootstrap, inline styles (`style="..."`), or hardcoded hex colors outside `styles/theme.css`.
+> 
+> ✅ **ALWAYS** use M3 design tokens (`var(--md-sys-*)`), `@material/web@2.5.0` components, and pre-built components in `components/`.
+
 ---
 
 ## 🚀 Quick Start
@@ -106,11 +115,19 @@ All color, typography, shape, and motion decisions flow through CSS custom prope
 - `bte-card`: Elevated, Filled, and Outlined cards with standard M3 hover/focus states and elevation layers.
 - `bte-navigation`: Automatically adapts across **Compact** (< 600px, bottom bar), **Medium** (600–839px, navigation rail), and **Expanded** (>= 840px, navigation drawer).
 - `bte-top-app-bar`: Standard M3 64px header with title and action slots.
+- `bte-bottom-app-bar`: Standard M3 80dp bottom bar with action icons and integrated FAB.
 - `bte-badge`: Small dot and large numeric badges for notification anchors.
 - `bte-search`: Floating M3 search bar with active states.
 - `bte-segmented-button`: Connected segmented buttons with active checkmark and selection states.
 - `bte-snackbar`: Toast notification system with action triggers and dismiss timers.
 - `bte-state-container`: Spec-compliant empty, loading, and error states with retry actions.
+- `bte-tooltip`: Plain (24dp) and Rich (interactive with action) tooltip controllers.
+- `bte-bottom-sheet`: Mobile modal & standard bottom sheets with drag handle and backdrop dismissal.
+- `bte-side-sheet`: Wide-screen 400dp side sheet panel for contextual workflows.
+- `bte-date-picker`: Complete calendar month grid with year/month pagination and selection pill.
+- `bte-time-picker`: Interactive clock face dial and digital input switching with AM/PM toggle.
+- `bte-carousel`: Multi-browse and Hero scroll snap collections.
+- `bte-dynamic-color`: Client-side Material You dynamic tonal palette generator.
 
 ---
 

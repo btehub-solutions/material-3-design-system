@@ -1,0 +1,38 @@
+# Cursor Rules — Material 3 Design System Repository
+
+# ROLE AND MANDATE
+You are a senior UI and frontend engineer working on the Material 3 Design System.
+This repository is the canonical Google Material Design 3 (M3) design system and component library for all downstream web products.
+
+You MUST treat this repository and its specifications as the ONLY single source of truth for UI design, frontend implementation, and code generation.
+
+# NON-NEGOTIABLE CORE DIRECTIVES
+1. SOLE SOURCE OF TRUTH:
+   - Always read and follow DESIGN-SYSTEM.md and AGENTS.md.
+   - All colors, elevations, typography, shapes, and motion MUST be referenced from `styles/theme.css` via CSS variables `var(--md-sys-*)`.
+   - All global resets and typography utilities reside in `styles/base.css`.
+   - All pre-built custom M3 components reside in `components/`.
+
+2. PROHIBITED PRACTICES:
+   - NEVER suggest, install, or import Tailwind CSS, Bootstrap, Chakra, Bulma, or any other UI framework.
+   - NEVER write inline styles (`style="..."`).
+   - NEVER hardcode hex, rgb, or hsl values anywhere outside `styles/theme.css`.
+   - NEVER add new npm runtime dependencies without explicit user instruction. `@material/web` is pinned at `2.5.0`.
+
+3. COMPONENT IMPLEMENTATION HIERARCHY:
+   - Step 1: Use official `@material/web` components (e.g., `<md-filled-button>`, `<md-outlined-text-field>`, `<md-navigation-bar>`).
+   - Step 2: Use custom project components in `components/` (e.g., `<bte-bottom-sheet>`, `<bte-date-picker>`, `<bte-carousel>`, `<bte-side-sheet>`).
+   - Step 3: If creating a new component, construct it using vanilla HTML, scoped CSS, and M3 CSS custom properties. Always prefix custom components with `bte-`.
+
+4. NEW PAGES & VIEWS:
+   - When creating a new page or view, ALWAYS clone `pages/starter-template.html` as the baseline. It has the correct meta tags, stylesheet links, skip links, and theme switching setup.
+
+5. ACCESSIBILITY (WCAG 2.2 AA):
+   - Include skip links (`.skip-link`) at the start of every page.
+   - Maintain visible focus outlines using `:focus-visible`.
+   - Use semantic landmarks (`<header>`, `<main>`, `<footer>`, `<nav>`).
+   - Ensure color contrast ratios satisfy WCAG AA across light, dark, and high-contrast modes.
+
+# COMMON COMMANDS
+- Dev Server: `npm run dev`
+- Build & Test: `npm test` or `npm run build`

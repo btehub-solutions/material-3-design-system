@@ -46,6 +46,13 @@
   <link rel="stylesheet" href="./components/bte-snackbar.css">
   <link rel="stylesheet" href="./components/bte-search.css">
   <link rel="stylesheet" href="./components/bte-segmented-button.css">
+  <link rel="stylesheet" href="./components/bte-tooltip.css">
+  <link rel="stylesheet" href="./components/bte-bottom-sheet.css">
+  <link rel="stylesheet" href="./components/bte-side-sheet.css">
+  <link rel="stylesheet" href="./components/bte-date-picker.css">
+  <link rel="stylesheet" href="./components/bte-time-picker.css">
+  <link rel="stylesheet" href="./components/bte-carousel.css">
+  <link rel="stylesheet" href="./components/bte-bottom-app-bar.css">
 
   <!-- Showcase Page Styles -->
   <link rel="stylesheet" href="./styles/showcase.css">
@@ -63,17 +70,25 @@
         <span class="material-symbols-outlined">dashboard</span>
         Overview
       </button>
+      <button class="bte-nav-drawer__item" type="button" onclick="document.getElementById('dynamic-color-section').scrollIntoView({behavior: 'smooth'})">
+        <span class="material-symbols-outlined">palette</span>
+        Dynamic Color
+      </button>
       <button class="bte-nav-drawer__item" type="button" onclick="document.getElementById('buttons-section').scrollIntoView({behavior: 'smooth'})">
         <span class="material-symbols-outlined">smart_button</span>
         Components
       </button>
-      <button class="bte-nav-drawer__item" type="button" onclick="document.getElementById('tabs-section').scrollIntoView({behavior: 'smooth'})">
-        <span class="material-symbols-outlined">tab</span>
-        Navigation & Lists
+      <button class="bte-nav-drawer__item" type="button" onclick="document.getElementById('pickers-section').scrollIntoView({behavior: 'smooth'})">
+        <span class="material-symbols-outlined">calendar_today</span>
+        Date & Time
       </button>
-      <button class="bte-nav-drawer__item" type="button" onclick="document.getElementById('cards-section').scrollIntoView({behavior: 'smooth'})">
-        <span class="material-symbols-outlined">view_agenda</span>
-        Cards & Layout
+      <button class="bte-nav-drawer__item" type="button" onclick="document.getElementById('sheets-section').scrollIntoView({behavior: 'smooth'})">
+        <span class="material-symbols-outlined">dock_to_bottom</span>
+        Sheets & Tooltips
+      </button>
+      <button class="bte-nav-drawer__item" type="button" onclick="document.getElementById('carousel-section').scrollIntoView({behavior: 'smooth'})">
+        <span class="material-symbols-outlined">view_carousel</span>
+        Carousel & Bars
       </button>
       <button class="bte-nav-drawer__item" type="button" onclick="document.getElementById('states-section').scrollIntoView({behavior: 'smooth'})">
         <span class="material-symbols-outlined">error_outline</span>
@@ -92,23 +107,29 @@
         </div>
         <span class="md-typescale-label-small">Overview</span>
       </button>
-      <button class="bte-nav-rail__item" type="button" aria-label="Components" onclick="document.getElementById('buttons-section').scrollIntoView({behavior: 'smooth'})">
+      <button class="bte-nav-rail__item" type="button" aria-label="Color" onclick="document.getElementById('dynamic-color-section').scrollIntoView({behavior: 'smooth'})">
+        <div class="bte-nav-rail__icon-container">
+          <span class="material-symbols-outlined">palette</span>
+        </div>
+        <span class="md-typescale-label-small">Color</span>
+      </button>
+      <button class="bte-nav-rail__item" type="button" aria-label="Elements" onclick="document.getElementById('buttons-section').scrollIntoView({behavior: 'smooth'})">
         <div class="bte-nav-rail__icon-container">
           <span class="material-symbols-outlined">smart_button</span>
         </div>
         <span class="md-typescale-label-small">Elements</span>
       </button>
-      <button class="bte-nav-rail__item" type="button" aria-label="Lists and Tabs" onclick="document.getElementById('tabs-section').scrollIntoView({behavior: 'smooth'})">
+      <button class="bte-nav-rail__item" type="button" aria-label="Pickers" onclick="document.getElementById('pickers-section').scrollIntoView({behavior: 'smooth'})">
         <div class="bte-nav-rail__icon-container">
-          <span class="material-symbols-outlined">tab</span>
+          <span class="material-symbols-outlined">calendar_today</span>
         </div>
-        <span class="md-typescale-label-small">Lists</span>
+        <span class="md-typescale-label-small">Pickers</span>
       </button>
-      <button class="bte-nav-rail__item" type="button" aria-label="States" onclick="document.getElementById('states-section').scrollIntoView({behavior: 'smooth'})">
+      <button class="bte-nav-rail__item" type="button" aria-label="Sheets" onclick="document.getElementById('sheets-section').scrollIntoView({behavior: 'smooth'})">
         <div class="bte-nav-rail__icon-container">
-          <span class="material-symbols-outlined">error_outline</span>
+          <span class="material-symbols-outlined">dock_to_bottom</span>
         </div>
-        <span class="md-typescale-label-small">States</span>
+        <span class="md-typescale-label-small">Sheets</span>
       </button>
     </nav>
 
@@ -172,7 +193,7 @@
               <div>
                 <h2 class="md-typescale-headline-medium">Material 3 Foundations & Tokens</h2>
                 <p class="md-typescale-body-large text-on-surface-variant mt-1">
-                  Specification-compliant design system ready for AI agent integration and production deployment.
+                  Complete specification-compliant design system with full component coverage and dynamic color engine.
                 </p>
               </div>
               <div class="window-badge" id="screen-class-indicator">Screen: Detecting...</div>
@@ -208,6 +229,125 @@
               <div class="color-swatch color-swatch--error">
                 <span>Error</span>
                 <span>on-error</span>
+              </div>
+            </div>
+          </section>
+
+          <!-- ADVANCED: Material You Dynamic Color Engine -->
+          <section class="section-card" id="dynamic-color-section">
+            <h2 class="md-typescale-headline-small">Material You Dynamic Color Engine</h2>
+            <p class="md-typescale-body-medium text-on-surface-variant">
+              Pick any seed color or choose a preset. The client-side M3 engine instantly recalculates all 37 tonal tokens across the entire page in real time.
+            </p>
+            <div class="component-row items-center">
+              <label class="form-label-row">
+                <span class="md-typescale-title-medium">Custom Seed:</span>
+                <input type="color" id="seed-color-input" class="seed-color-picker-input" value="#6750A4" aria-label="Select custom seed color">
+              </label>
+
+              <div class="flex-row gap-2 flex-wrap items-center">
+                <span class="md-typescale-label-medium">Presets:</span>
+                <md-assist-chip label="Baseline Purple" id="preset-purple" data-color="#6750A4"></md-assist-chip>
+                <md-assist-chip label="Emerald Teal" id="preset-teal" data-color="#006A6A"></md-assist-chip>
+                <md-assist-chip label="Warm Rust" id="preset-rust" data-color="#8F4C38"></md-assist-chip>
+                <md-assist-chip label="Deep Ocean" id="preset-ocean" data-color="#006399"></md-assist-chip>
+                <md-assist-chip label="Crimson Rose" id="preset-crimson" data-color="#B3261E"></md-assist-chip>
+                <md-outlined-button type="button" id="reset-color-btn">Reset Default</md-outlined-button>
+              </div>
+            </div>
+          </section>
+
+          <!-- NEW: Date & Time Pickers -->
+          <section class="section-card" id="pickers-section">
+            <h2 class="md-typescale-headline-small">Date & Time Pickers (Spec Components)</h2>
+            <p class="md-typescale-body-medium text-on-surface-variant">
+              Complete interactive calendar month grid with year/month pagination, and clock dial with digital input switching.
+            </p>
+            <div class="pickers-grid">
+              <div id="date-picker-slot"></div>
+              <div id="time-picker-slot"></div>
+            </div>
+          </section>
+
+          <!-- NEW: Sheets & Tooltips -->
+          <section class="section-card" id="sheets-section">
+            <h2 class="md-typescale-headline-small">Sheets & Tooltips (Spec Components)</h2>
+            <p class="md-typescale-body-medium text-on-surface-variant">
+              Mobile and desktop containment sheets with drag handle, scrim, and auto-anchored plain/rich tooltips.
+            </p>
+            <div class="component-row">
+              <md-filled-tonal-button type="button" id="open-bottom-sheet-btn">
+                <md-icon slot="icon"><span class="material-symbols-outlined">dock_to_bottom</span></md-icon>
+                Open Bottom Sheet
+              </md-filled-tonal-button>
+
+              <md-filled-tonal-button type="button" id="open-side-sheet-btn">
+                <md-icon slot="icon"><span class="material-symbols-outlined">dock_to_right</span></md-icon>
+                Open Side Sheet
+              </md-filled-tonal-button>
+
+              <md-outlined-button type="button" id="plain-tooltip-anchor">
+                Hover for Plain Tooltip
+              </md-outlined-button>
+
+              <md-outlined-button type="button" id="rich-tooltip-anchor">
+                Hover for Rich Tooltip
+              </md-outlined-button>
+            </div>
+          </section>
+
+          <!-- NEW: Carousel & Bottom App Bar -->
+          <section class="section-card" id="carousel-section">
+            <h2 class="md-typescale-headline-small">Carousel & Bottom App Bar (Spec Components)</h2>
+            <p class="md-typescale-body-medium text-on-surface-variant">
+              Multi-browse scroll snap carousel and in-context Bottom App Bar with integrated FAB.
+            </p>
+
+            <!-- Multi-browse Carousel -->
+            <div class="bte-carousel-container" id="showcase-carousel">
+              <div class="bte-carousel">
+                <div class="bte-carousel__item">
+                  <div class="bte-carousel__item-title">Design Tokens</div>
+                  <div class="bte-carousel__item-subtitle">M3 Semantic Variables</div>
+                </div>
+                <div class="bte-carousel__item">
+                  <div class="bte-carousel__item-title">Web Components</div>
+                  <div class="bte-carousel__item-subtitle">Official @material/web</div>
+                </div>
+                <div class="bte-carousel__item">
+                  <div class="bte-carousel__item-title">Custom Spec Elements</div>
+                  <div class="bte-carousel__item-subtitle">Clean bte-* Architecture</div>
+                </div>
+                <div class="bte-carousel__item">
+                  <div class="bte-carousel__item-title">Dynamic Color</div>
+                  <div class="bte-carousel__item-subtitle">Material You Engine</div>
+                </div>
+              </div>
+              <div class="bte-carousel__controls">
+                <md-icon-button class="bte-carousel-prev" aria-label="Previous carousel item">
+                  <md-icon><span class="material-symbols-outlined">arrow_back</span></md-icon>
+                </md-icon-button>
+                <md-icon-button class="bte-carousel-next" aria-label="Next carousel item">
+                  <md-icon><span class="material-symbols-outlined">arrow_forward</span></md-icon>
+                </md-icon-button>
+              </div>
+            </div>
+
+            <!-- Bottom App Bar Showcase Container -->
+            <div class="mt-4">
+              <span class="md-typescale-label-medium">Bottom App Bar Demo:</span>
+              <div class="bte-bottom-app-bar mt-2">
+                <div class="bte-bottom-app-bar__actions">
+                  <md-icon-button aria-label="Open drawer menu"><md-icon><span class="material-symbols-outlined">menu</span></md-icon></md-icon-button>
+                  <md-icon-button aria-label="Search items"><md-icon><span class="material-symbols-outlined">search</span></md-icon></md-icon-button>
+                  <md-icon-button aria-label="Filter items"><md-icon><span class="material-symbols-outlined">tune</span></md-icon></md-icon-button>
+                  <md-icon-button aria-label="Favorite items"><md-icon><span class="material-symbols-outlined">favorite</span></md-icon></md-icon-button>
+                </div>
+                <div class="bte-bottom-app-bar__fab-slot">
+                  <md-fab label="Action" aria-label="New action">
+                    <md-icon slot="icon"><span class="material-symbols-outlined">add</span></md-icon>
+                  </md-fab>
+                </div>
               </div>
             </div>
           </section>
@@ -283,7 +423,7 @@
             </div>
           </section>
 
-          <!-- Tabs, Lists & Dividers (Newly Added M3 Components) -->
+          <!-- Tabs, Lists & Dividers -->
           <section class="section-card" id="tabs-section">
             <h2 class="md-typescale-headline-small">Tabs, Lists & Dividers (@material/web)</h2>
             
@@ -384,7 +524,7 @@
             </md-chip-set>
           </section>
 
-          <!-- Spec-Built Cards Showcase -->
+          <!-- Cards Showcase -->
           <section class="section-card" id="cards-section">
             <h2 class="md-typescale-headline-small">Custom M3 Spec-Compliant Cards</h2>
             <div class="card-grid">
@@ -430,7 +570,7 @@
             </div>
           </section>
 
-          <!-- Spec-Built Page States Showcase -->
+          <!-- Page States Showcase -->
           <section class="section-card" id="states-section">
             <h2 class="md-typescale-headline-small">Required M3 Page States</h2>
             <p class="md-typescale-body-medium text-on-surface-variant">
@@ -552,17 +692,17 @@
         </div>
         <span class="bte-nav-bar__label">Overview</span>
       </button>
-      <button class="bte-nav-bar__item" type="button" aria-label="Components" onclick="document.getElementById('buttons-section').scrollIntoView({behavior: 'smooth'})">
+      <button class="bte-nav-bar__item" type="button" aria-label="Color" onclick="document.getElementById('dynamic-color-section').scrollIntoView({behavior: 'smooth'})">
         <div class="bte-nav-bar__icon-container">
-          <span class="material-symbols-outlined">smart_button</span>
+          <span class="material-symbols-outlined">palette</span>
         </div>
-        <span class="bte-nav-bar__label">Elements</span>
+        <span class="bte-nav-bar__label">Color</span>
       </button>
-      <button class="bte-nav-bar__item" type="button" aria-label="Cards" onclick="document.getElementById('cards-section').scrollIntoView({behavior: 'smooth'})">
+      <button class="bte-nav-bar__item" type="button" aria-label="Pickers" onclick="document.getElementById('pickers-section').scrollIntoView({behavior: 'smooth'})">
         <div class="bte-nav-bar__icon-container">
-          <span class="material-symbols-outlined">view_agenda</span>
+          <span class="material-symbols-outlined">calendar_today</span>
         </div>
-        <span class="bte-nav-bar__label">Cards</span>
+        <span class="bte-nav-bar__label">Pickers</span>
       </button>
       <button class="bte-nav-bar__item" type="button" aria-label="States" onclick="document.getElementById('states-section').scrollIntoView({behavior: 'smooth'})">
         <div class="bte-nav-bar__icon-container">
@@ -578,16 +718,16 @@
   <md-dialog id="info-dialog">
     <div slot="headline">Material Design 3 Ready</div>
     <div slot="content">
-      This repository is fully populated with Google M3 design tokens, responsive window size classes, pinned @material/web 2.5.0 components, and spec-compliant custom elements.
+      This repository is fully populated with Google M3 design tokens, responsive window size classes, pinned @material/web 2.5.0 components, custom spec-compliant elements, and Material You dynamic color generation.
     </div>
     <div slot="actions">
       <md-filled-button id="dialog-close">Got it</md-filled-button>
     </div>
   </md-dialog>
 
-  <!-- Component Scripts & Theme Management -->
+  <!-- Component Scripts & Controllers -->
   <script type="module">
-    // Import Stable Web Components individually as per Section 2
+    // Official Web Components
     import '@material/web/button/filled-button.js';
     import '@material/web/button/elevated-button.js';
     import '@material/web/button/filled-tonal-button.js';
@@ -624,8 +764,16 @@
     import '@material/web/tabs/primary-tab.js';
     import '@material/web/divider/divider.js';
 
+    // Custom Spec Controllers
     import { setTheme, getStoredTheme } from './components/bte-theme.js';
     import { showSnackbar } from './components/bte-snackbar.js';
+    import { attachTooltip } from './components/bte-tooltip.js';
+    import { createBottomSheet } from './components/bte-bottom-sheet.js';
+    import { createSideSheet } from './components/bte-side-sheet.js';
+    import { createDatePicker } from './components/bte-date-picker.js';
+    import { createTimePicker } from './components/bte-time-picker.js';
+    import { initCarousel } from './components/bte-carousel.js';
+    import { applyDynamicSeedColor, resetDynamicSeedColor } from './components/bte-dynamic-color.js';
 
     // Theme Selector Integration
     const themeSelector = document.getElementById('theme-selector');
@@ -635,6 +783,80 @@
     themeSelector.addEventListener('change', () => {
       setTheme(themeSelector.value);
     });
+
+    // Material You Dynamic Color Generator Integration
+    const seedInput = document.getElementById('seed-color-input');
+    const savedSeed = localStorage.getItem('m3-seed-color');
+    if (savedSeed) {
+      seedInput.value = savedSeed;
+      applyDynamicSeedColor(savedSeed);
+    }
+
+    seedInput.addEventListener('input', (e) => {
+      applyDynamicSeedColor(e.target.value);
+    });
+
+    document.querySelectorAll('[data-color]').forEach(chip => {
+      chip.addEventListener('click', () => {
+        const color = chip.getAttribute('data-color');
+        seedInput.value = color;
+        applyDynamicSeedColor(color);
+      });
+    });
+
+    document.getElementById('reset-color-btn').addEventListener('click', () => {
+      seedInput.value = '#6750A4';
+      resetDynamicSeedColor();
+    });
+
+    // Initialize Spec Date & Time Pickers
+    const datePicker = createDatePicker({
+      onDateSelect: (d) => showSnackbar({ message: `Date selected: ${d.toDateString()}` })
+    });
+    document.getElementById('date-picker-slot').appendChild(datePicker.element);
+
+    const timePicker = createTimePicker({
+      onTimeSelect: (t) => showSnackbar({ message: `Time selected: ${t.formatted}` })
+    });
+    document.getElementById('time-picker-slot').appendChild(timePicker.element);
+
+    // Initialize Tooltips
+    attachTooltip(document.getElementById('plain-tooltip-anchor'), {
+      text: 'M3 Plain Tooltip (24dp height)'
+    });
+
+    attachTooltip(document.getElementById('rich-tooltip-anchor'), {
+      rich: true,
+      subhead: 'Rich Tooltip',
+      text: 'Provides detailed contextual assistance with optional action buttons.',
+      actionText: 'Learn More',
+      onAction: () => showSnackbar({ message: 'Rich tooltip action triggered' })
+    });
+
+    // Initialize Bottom Sheet
+    const bottomSheet = createBottomSheet({
+      title: 'Modal Bottom Sheet',
+      content: 'Standard M3 bottom sheet container supporting drag handle, backdrop dismissal, and embedded actions.',
+      actions: [
+        { text: 'Cancel' },
+        { text: 'Confirm', variant: 'filled', onClick: () => showSnackbar({ message: 'Bottom sheet action confirmed' }) }
+      ]
+    });
+    document.getElementById('open-bottom-sheet-btn').addEventListener('click', () => bottomSheet.open());
+
+    // Initialize Side Sheet
+    const sideSheet = createSideSheet({
+      title: 'Modal Side Sheet',
+      content: 'M3 Side Sheet panel for expanded screens (400dp width) with start/end rounded corners and backdrop scrim.',
+      actions: [
+        { text: 'Close' },
+        { text: 'Apply', variant: 'filled', onClick: () => showSnackbar({ message: 'Side sheet changes applied' }) }
+      ]
+    });
+    document.getElementById('open-side-sheet-btn').addEventListener('click', () => sideSheet.open());
+
+    // Initialize Carousel
+    initCarousel(document.getElementById('showcase-carousel'));
 
     // Header Menu Trigger Integration
     const menuBtn = document.getElementById('menu-anchor-button');

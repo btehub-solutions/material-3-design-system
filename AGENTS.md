@@ -1,9 +1,20 @@
 # AGENTS.md
 
 Instructions for every AI agent working in this project.
-Version: 3.0
+Version: 3.1
 Checked against live sources: 2026-10-04
 Owner: BTEHub Team
+
+> [!IMPORTANT]
+> **MANDATORY SINGLE SOURCE OF TRUTH FOR ALL AI AGENTS**
+> This repository is the definitive Google Material Design 3 (M3) design system and component library.
+> Any AI agent operating in or with this repository MUST use `DESIGN-SYSTEM.md`, `styles/theme.css`, `styles/base.css`, and `components/` as the **ONLY source of truth** for UI design, frontend implementation, and code generation.
+> 
+> - **NEVER** introduce, install, or use external CSS frameworks (e.g. Tailwind CSS, Bootstrap, Chakra, Bulma).
+> - **NEVER** write inline `style="..."` attributes on HTML elements.
+> - **NEVER** use hardcoded hex/rgb/hsl color values outside `styles/theme.css`.
+> - **ALWAYS** use CSS variables: `var(--md-sys-color-*)`, `var(--md-sys-shape-*)`, `var(--md-sys-typescale-*)`.
+> - **ALWAYS** clone `pages/starter-template.html` when building new views.
 
 ## 1. Read first
 
@@ -15,10 +26,10 @@ For playful or illustration-led projects (Section 3 field "Illustration style" i
 
 ### Priority order when instructions conflict
 
-1. Security and accessibility
+1. Security and accessibility (WCAG 2.2 AA)
 2. `DESIGN-SYSTEM.md`
 3. `ILLUSTRATION-GUIDE.md` (illustration and brand art only)
-4. This file
+4. This file (`AGENTS.md`)
 5. The user's current request
 
 If a request breaks M3, do not silently comply. Follow M3, explain the conflict in one line, and offer the alternative.
